@@ -1,0 +1,525 @@
+html,
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  font-weight: normal;
+  word-wrap: break-word;
+  word-break: normal;
+  font-size: 0.3rem;
+  line-height: 1;
+  color: #333333;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  font-size: inherit;
+}
+i {
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: none;
+}
+ul,
+ol {
+  padding: 0;
+  list-style-type: none;
+}
+.clearfix {
+  clear: both;
+  zoom: 1;
+}
+.clearfix::before {
+  content: "";
+  display: table;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+input,
+button,
+textarea {
+  font-family: 'PingFang SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+  outline: none;
+  resize: none;
+}
+/* * 去除滚动条 * */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+::-webkit-search-cancel-button {
+  display: none;
+}
+::-webkit-input-placeholder {
+  color: #999;
+}
+/*以上为公用代码*/
+[v-cloak] {
+  /* 让隐藏的东西不会在刷新页面的一瞬间显示*/
+  display: none;
+}
+.el-menu::after{
+  display:none !important;
+}
+.el-menu.el-menu--horizontal{
+  border:none !important;
+  display: inline-block;
+}
+.el-menu--horizontal>.el-menu-item.is-active{
+  border:none !important;
+}
+.el-menu--horizontal>.el-menu-item{
+  border:none !important;
+}
+.el-menu--horizontal>.el-menu-item{
+  height: 0.6rem!important;
+  line-height: 0.6rem!important;
+}
+.el-menu-item{
+  font-size: 0.14rem !important;
+  padding: 0 0.13rem !important;
+  font-weight: 600;
+}
+/* my start */
+.index{
+  background-color: rgb(253, 235, 233);
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.index .main{
+  width: 13rem;
+  background-color: #fff;
+  margin: 0.8rem auto;
+  border-radius: 0.8rem;
+  box-shadow:0rem 0rem 0rem 0.15rem rgb(248, 197, 198);
+}
+.index .main .leftBlock{
+  padding:0.6rem 0.3rem 0.2rem 0.5rem;
+  width: 9rem;
+  display: inline-block;
+}
+.index .main .leftBlock header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.index .main .leftBlock header .logo{
+  width: 0.6rem;
+}
+
+.el-input__inner{
+  background-color: rgb(248, 248, 248) !important;
+  border-radius: 0.5rem !important;
+  border:none !important;
+}
+.index .main .leftBlock header .searchInput{
+  width: 2.5rem;
+}
+.index .main .leftBlock .cardBlock .title{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0.1rem;
+  margin-top: 0.5rem;
+}
+.index .main .leftBlock .cardBlock .title .titleName{
+  font-size: 0.2rem;
+  font-weight:bold;
+}
+.index .main .leftBlock .cardBlock .title .viewAll{
+  font-size: 0.15rem;
+  color:rgb(188, 188, 194);
+}
+.index .main .leftBlock .cardBlock .cardList{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.index .main .leftBlock .cardBlock .cardList .oneCard{
+  width: 2.6rem;
+  padding:0.2rem;
+  background-color: rgb(254, 77, 85);
+  display: inline-block;
+  border-radius: 0.2rem;
+  font-size: 0.2rem;
+  color: rgba(33,33,33,0.6);
+  position: relative;
+}
+.index .main .leftBlock .cardBlock .cardList .blueBgc{
+  background-color: rgb(14, 128, 154);
+}
+.index .main .leftBlock .cardBlock .cardList .oneCard .balanceTitle{
+  font-size: 0.1rem;
+}
+.index .main .leftBlock .cardBlock .cardList .oneCard .balance{
+  color: white;
+  margin-top: 0.15rem;
+}
+.index .main .leftBlock .cardBlock .cardList .oneCard .carNumber{
+  margin: 0.3rem 0;
+}
+.index .main .leftBlock .cardBlock .cardList .oneCard .name{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.el-switch__core:after{
+  background-color: rgb(254, 195, 75) !important;
+}
+.index .main .leftBlock .cardBlock .cardList .addCard{
+  width: 2.6rem;
+  height: 2rem;
+  background-color: rgb(248, 248, 248);
+  text-align: center;
+  color: rgb(192, 192, 194);
+  border-radius: 0.2rem;
+  font-size: 0.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.index .main .leftBlock .cardBlock .cardList .addCard img{
+  width: 0.5rem;
+  display: block;
+  margin-bottom:0.1rem;
+}
+.index .main .leftBlock .mainService{
+  margin-top: 0.5rem;
+  width: 2.4rem;
+  display: inline-block;
+}
+.index .main .leftBlock .mainService .title{
+  font-size: 0.2rem;
+  font-weight:bold;
+  display: flex;
+  justify-content: space-between;
+}
+.index .main .leftBlock .mainService .title .viewAll{
+  font-size: 0.15rem;
+  color:rgb(188, 188, 194);
+}
+.index .main .leftBlock .mainService .serviceList{
+  margin-top: 0.2rem;
+}
+.index .main .leftBlock .mainService .serviceList .oneService{
+    font-size: 0.12rem;
+    color: black;
+    border:0.01rem solid #fff;
+    border-radius: 0.2rem;
+    box-shadow:0rem 0rem 0.1rem 0rem rgb(235, 229, 229);
+    font-weight: bold;
+    text-align: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    display: inline-block;
+    margin-top: 0.2rem;
+    vertical-align: top;
+}
+.index .main .leftBlock .mainService .serviceList .oneService img{
+  width:0.4rem;
+  margin-top: 0.2rem;
+}
+.index .main .leftBlock .mainService .serviceList .oneService .serviceName{
+  margin-top: 0.1rem;
+}
+.index .main .leftBlock .curSaving{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.5rem;
+  width:5.3rem;
+  margin-left: 0.4rem;
+}
+.index .main .leftBlock .curSaving .current .title{
+  font-size: 0.2rem;
+  font-weight:bold;
+  display: flex;
+  justify-content: space-between;
+}
+.index .main .leftBlock .curSaving .current .title .viewAll{
+  font-size: 0.15rem;
+  color:rgb(188, 188, 194);
+}
+.index .main .leftBlock .curSaving .current .curData .oneData{
+  font-size: 0.2rem;
+  font-weight: bold;
+  margin-top: 0.2rem;
+}
+.index .main .leftBlock .curSaving .current .curData .oneData .num{
+  color: rgb(210, 211, 213);
+}
+.index .main .leftBlock .curSaving .current .curData .oneData .lue-icon{
+  width: 2.4rem;
+}
+.index .main .leftBlock .curSaving .saving{
+  margin-top: 0.4rem;
+}
+.index .main .leftBlock .curSaving .saving .title{
+  font-size: 0.2rem;
+  font-weight:bold;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+.index .main .leftBlock .curSaving .saving .title .viewAll{
+  font-size: 0.1rem;
+  color:rgb(188, 188, 194);
+}
+.index .main .leftBlock .curSaving .saving .echarts{
+  width: 3.5rem;
+  height: 3rem;
+  display: inline-block;
+}
+.index .main .leftBlock .curSaving .saving .echarts div{
+  height:2.85rem !important;
+  width: 3.32rem !important;
+}
+.index .main .leftBlock .curSaving .saving .echarts canvas{
+  height:2.85rem !important;
+  width: 3.32rem !important;
+}
+.index .main .leftBlock .curSaving .saving .message{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.4rem;
+}
+.index .main .leftBlock .curSaving .saving .message .oneMessage{
+  font-size: 0.15rem;
+  display: flex;
+  justify-content: space-between;
+  width: 1.6rem;
+  margin-top: 0.25rem;
+  font-weight: bold;
+}
+.index .main .leftBlock .curSaving .saving .message .oneMessage .name{
+  color:  rgb(196, 196, 196)
+}
+.index .main .rightBlock{
+  padding:0.5rem;
+  width: 3.9rem;
+  display: inline-block;
+  vertical-align: top;
+  border:0.01rem solid #fff;
+  border-radius: 0.8rem;
+  box-shadow:-0.1rem 0.1rem 0.2rem 0.05rem rgb(230, 230, 233);
+}
+.index .main .rightBlock .topMessage{
+  display: flex;
+  justify-content: space-between;
+}
+.index .main .rightBlock .topMessage .message-icon{
+  width: 0.3rem;
+}
+.index .main .rightBlock .topMessage .userMessage{
+  font-size: 0.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.index .main .rightBlock .topMessage .userMessage .avatar{
+  width: 0.3rem;
+  width: 0.3rem;
+  border-radius: 50%;
+  margin-left:0.1rem;
+}
+.index .main .rightBlock .circle{
+  width: 100%;
+  height: 2rem;
+  margin-top: 0.8rem;
+   
+}
+.index .main .rightBlock .circle div{
+  width: 2.74rem !important; 
+  height: 1.9rem !important; 
+}
+.index .main .rightBlock .circle canvas{
+  width: 2.74rem !important; 
+  height: 1.9rem !important; 
+}
+.index .main .rightBlock .transation .title{
+  font-size: 0.18rem;
+  color: rgb(189, 190, 192);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.index .main .rightBlock .transation .title .today img{
+  width: 0.2rem;
+  vertical-align: middle;
+}
+.index .main .rightBlock .transation .transationList .oneTransation{
+  font-size: 0.15rem;
+  font-weight: bold;
+}
+.index .main .rightBlock .transation .transationList .oneTransation{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+.index .main .rightBlock .transation .transationList .oneTransation .left{
+  display: inline-block;
+}
+.index .main .rightBlock .transation .transationList .oneTransation img{
+  width: 0.3rem;
+  vertical-align: middle;
+  margin-right: 0.2rem;
+}
+.index .main .rightBlock .transation .transationList .oneTransation .money{
+  color:rgb(238, 133, 142);
+}
+.index .main .rightBlock .transfer{
+  margin-top: 0.8rem;
+  width: 3rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  padding:0 0.2rem;
+  font-size: 0.2rem;
+  color: white;
+  background-color: rgb(254, 77, 85);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.index .main .rightBlock .transfer img{
+  width: 0.2rem;
+}
+.index .main .rightBlock .bottomMessage {
+  background-color: rgb(17, 125, 152);
+  width: 0.5rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+}
+.index .main .rightBlock .bottomMessage img{
+  width: 0.3rem;
+}
+.index .main .rightBlock .outerMessage{
+  text-align: right;
+  margin-top: 1.25rem;
+}
+@media screen and (max-width: 807px){ 
+  .index .main .rightBlock{
+    display: block;
+    width: 100%;
+  }
+  .index .main .leftBlock{
+    width:100%;
+  }
+  .index .main .leftBlock .cardBlock .cardList .oneCard{
+    width: 3.8rem;
+  }
+  .index .main .leftBlock .cardBlock .cardList .addCard{
+    width: 3.8rem;
+    height: 2.5rem;
+  }
+  .index .main .leftBlock .mainService{
+    width: 3.8rem;
+  }
+  .index .main .leftBlock .mainService .serviceList .oneService{
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .index .main .leftBlock .mainService .serviceList .oneService img{
+    width: 0.6rem;
+    margin-top: 0.4rem;
+  }
+  .index .main .leftBlock .curSaving{
+    width: 7.8rem;
+  }
+  .index .main .leftBlock .curSaving .current .curData .oneData .lue-icon{
+    width: 4rem;
+  }
+  .index .main .leftBlock .curSaving .current .curData .oneData{
+    margin-top: 0.4rem;
+  }
+  .index .main .leftBlock .curSaving .saving .echarts{
+    width: 5.9rem;
+    height: 4rem;
+  }
+  .index .main .leftBlock .curSaving .saving .echarts div{
+    width: 5.9rem !important;
+    height: 4rem!important;
+  }
+  .index .main .leftBlock .curSaving .saving .echarts canvas{
+    width: 5.9rem !important;
+    height: 4rem !important;;
+  }
+  .index .main .rightBlock .circle{
+    display: inline-block;
+    width: 4rem;
+    height: 3rem;
+  }
+  .index .main .rightBlock .transation{
+    display: inline-block;
+    width: 6rem;
+    margin-left: 0.2rem;
+  }
+  .index .main .rightBlock .circle div{
+    width: 4rem !important;
+    height: 3rem !important;;
+  }
+  .index .main .rightBlock .circle canvas{
+    width: 4rem !important;
+    height: 3rem !important;
+  }
+  .index .main .rightBlock .transfer{
+    margin: 1rem auto;
+  }
+}
+@media screen and (min-width: 320px)and (max-width: 610px){ 
+  .index .main .leftBlock .curSaving .current .curData .oneData .lue-icon{
+    width:3rem
+  }
+  .index .main .leftBlock .curSaving .saving .echarts{
+    width:4rem;
+    height:5rem;
+  }
+  .index .main .leftBlock .curSaving .saving .echarts div{
+    width:4rem !important;
+    height:5rem !important;;
+  }
+  .index .main .leftBlock .curSaving .saving .echarts canvas{
+    width:4rem !important;
+    height:5rem !important;;
+  }
+  .index .main .leftBlock .curSaving .saving .message .oneMessage{
+    width: 3rem;
+  }
+  .index .main .leftBlock .mainService .serviceList .oneService{
+    width: 1.8rem;
+    height: 2rem;
+  }
+  .index .main .rightBlock .transfer{
+    width: 3.5rem;
+  }
+  .index .main .leftBlock .cardBlock .cardList .addCard{
+    height: 3rem;
+  }
+}

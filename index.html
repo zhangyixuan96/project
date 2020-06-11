@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="./js/global.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    
+</head>
+
+<body>
+    <div id="app" class="index" v-cloak>
+        <div class="main">
+            <!-- 左边模块 -->
+            <div class="leftBlock">
+                <!-- 导航栏 -->
+                <header>
+                    <img class="logo" src="images/M.png" alt="">
+                    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                        <el-menu-item index="1">Dashboard</el-menu-item>
+                        <el-menu-item index="2">Services</el-menu-item>
+                        <el-menu-item index="3">History</el-menu-item>
+                        <el-menu-item index="4">Acions</el-menu-item>
+                    </el-menu>
+                    <el-input
+                        class="searchInput"
+                        placeholder="search..."
+                        suffix-icon="el-icon-search"
+                        v-model="searchValue">
+                    </el-input>
+                </header>
+                <!-- cardBlock -->
+                <div class="cardBlock">
+                    <div class="title">
+                       <span class="titleName">Cards</span>
+                       <span class="viewAll">View all cards</span>
+                    </div>
+                    <div class="cardList">
+                        <div class="oneCard">
+                            <div class="balanceTitle">Avaliable balance</div>
+                            <div class="balance">$2,200</div>
+                            <div class="carNumber">**** **** **** **34</div>
+                            <div class="name">
+                                <span> Monzo</span>
+                                <el-switch
+                                class="mySwitch"
+                                v-model="swichValue1"
+                                active-color="rgb(227,7,19)"
+                                inactive-color="green">
+                                </el-switch>
+                            </div>
+                        </div>
+                        <div class="oneCard blueBgc">
+                            <div class="balanceTitle">Avaliable balance</div>
+                            <div class="balance">$2,200</div>
+                            <div class="carNumber">**** **** **** **34</div>
+                            <div class="name">
+                                <span> Monzo</span>
+                                <el-switch
+                                class="mySwitch"
+                                v-model="swichValue2"
+                                active-color="rgb(252, 59, 80)"
+                                inactive-color="green">
+                                </el-switch>
+                            </div>
+                        </div>
+                        <div class="addCard">
+                            <img src="images/ball.png" alt="">
+                            <span>Add New Card</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 主要业务 -->
+                <div class="mainService">
+                    <div class="title">
+                        <span class="serviceTitle">Main Services</span>
+                        <span class="viewAll">View all</span>
+                    </div>
+                    <div class="serviceList">
+                        <div class="oneService">
+                                <img src="images/change.png" alt="">
+                                <div class="serviceName">Transations</div>
+                        </div>
+                        <div class="oneService">
+                                <img src="images/show.png" alt="">
+                                <div class="serviceName">Utility</div>
+                        </div>
+                        <div class="oneService">
+                                <img src="images/money.png" alt="">
+                                <div class="serviceName">Loans</div>
+                        </div>
+                        <div class="oneService">
+                                <img src="images/package.png" alt="">
+                                <div class="serviceName">Deposits</div>
+                        </div>
+                        <div class="oneService">
+                                <img src="images/time.png" alt="">
+                                <div class="serviceName">Fast transfer</div>
+                        </div>
+                        <div class="oneService">
+                                <img src="images/exchange.png" alt="">
+                                <div class="serviceName">Exchange</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="curSaving">
+                <!-- 当前 -->
+                <div class="current">
+                    <div class="title">
+                        <div class="currentTitle">Current</div>
+                        <span class="viewAll">View all</span>
+                    </div>
+                   <div class="curData">
+                       <div class="oneData">
+                           <span class="num">1063873237834</span>
+                           <img class="lue-icon" src="images/lue.jpg" alt="">
+                           <span class="money">$2,200,01</span>
+                       </div>
+                       <div class="oneData">
+                           <span class="num">1063873237834</span>
+                           <img class="lue-icon" src="images/lue.jpg" alt="">
+                           <span class="money">$2,200,01</span>
+                       </div>
+                       <div class="oneData">
+                           <span class="num">1063873237834</span>
+                           <img class="lue-icon" src="images/lue.jpg" alt="">
+                           <span class="money">$2,200,01</span>
+                       </div>
+                   </div>
+                </div>
+                <!-- saving -->
+                <div class="saving">
+                    <div class="title">
+                        <div class="currentTitle">Savings</div>
+                        <span class="viewAll">View all</span>
+                    </div>
+                    <div class="echarts" id="lineEchart">
+
+                    </div>
+                    <div class="message">
+                        <div class="oneMessage">
+                            <span class="name">Total</span>
+                            <span>$100.09</span>
+                        </div>
+                        <div class="oneMessage">
+                            <span class="name">This week</span>
+                            <span>$100.09</span>
+                        </div>
+                        <div class="oneMessage">
+                            <span class="name">This month</span>
+                            <span>$100.09</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- 右边模块 -->
+            <div class="rightBlock">
+                <div class="topMessage">
+                    <img class="message-icon" src="images/ding.png" alt="">
+                    <div class="userMessage">
+                        <span>Anastasia</span>
+                        <img class="avatar" src="images/avatar.png" alt="">
+                    </div>
+                </div>
+                <div class="circle" id="circle">
+
+                </div>
+                <!-- transation -->
+                <div class="transation">
+                    <div class="title">
+                        <div class="transationTitle">transations</div>
+                        <span class="today">Today <img src="images/downArrow.png" alt=""> </span>
+                    </div>
+                    <div class="transationList">
+                        <div class="oneTransation">
+                            <div class="left">
+                                <img src="images/ball.png" alt="">
+                                <span>Adidas Refund</span>
+                            </div>
+                            <span class="money">-$100</span>
+                        </div>
+                        <div class="oneTransation">
+                            <div class="left">
+                                <img src="images/adidas.png" alt="">
+                                <span>Adidas Refund</span>
+                            </div>
+                            <span class="money">-$100</span>
+                        </div>
+                        <div class="oneTransation">
+                            <div class="left">
+                                <img src="images/fenzi.png" alt="">
+                                <span>Adidas Refund</span>
+                            </div>
+                            <span class="money">-$100</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- transfer btn -->
+                <div class="transfer">
+                    <span>Transfer Money</span>
+                    <img src="images/rightArrow.png" alt="">
+                </div>
+                <!-- 底部信息 -->
+                <div class="outerMessage">
+                    <div class="bottomMessage">
+                        <img src="images/message.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            mounted() {
+                // 初始化图表
+                this.circle = echarts.init(document.getElementById('circle'));
+                this.circle.setOption(this.circleOption);
+                this.lineEchart = echarts.init(document.getElementById('lineEchart'));
+                this.lineEchart.setOption(this.lineEchartOption);
+            },
+            el: "#app",
+            data: {
+                activeIndex:"1",
+                searchValue:'',
+                swichValue1:true,
+                swichValue2:true,
+                // 圆环选项
+                circleOption: {
+                    graphic: {
+                        type: 'text',               
+                        top: 'center',              
+                        left: 'center',             
+                        style: {
+                            text: ' $5,349\nBalance',       
+                            fontSize: 16,           
+                            fontWeight: 'bold'		
+                        }
+                    },
+
+                    series: [
+                        {
+                            name: '访问来源',
+                            type: 'pie',
+                            radius: ['80%', '100%'],
+                            avoidLabelOverlap: false,
+                            label: {
+                                show: false,
+                                position: 'center'
+                            },
+                            color:['rgb(248, 248, 248)', 'rgb(19, 35, 60)', 'rgb(13, 128, 154)', 'rgb(253, 38, 51)'],
+                            labelLine: {
+                                show: false
+                            },
+                            data: [
+                                {value: 100, name: ''},
+                                {value: 100, name: ''},
+                                {value: 100, name: ''},
+                                {value: 100, name: ''},
+                        
+                            ]
+                        }
+                    ]
+                },
+                // 曲线选项
+                lineEchartOption:{
+                    xAxis: {
+                        data: ["$10","$20","$30","$40","$50"],
+                        splitLine: {
+								show: false,
+								lineStyle: {
+									color: '#999999',
+									type: 'solid'
+								}
+							},
+							boundaryGap: false,
+							axisLine:{                  
+								show:false,                 
+								//坐标线的颜色样式
+								lineStyle:{
+									color:'#999999',
+									width:1,
+									type:'solid',
+								},
+							},
+                    },
+                    // 直角坐标系 grid 中的 y 轴
+                    yAxis: {
+                        type: 'value', 
+                        axisLabel: {
+                            formatter: '{value}%'  
+                        },
+                        // 刻度
+							splitNumber:3,	
+                        axisLine:{                 
+								show:false,                  
+								//坐标线的颜色样式
+								lineStyle:{
+									color:'#999999',
+									width:1,
+									type:'solid',
+								},
+							},
+                    },
+                    // 系列列表。每个系列通过 type 决定自己的图表类型
+                    series: [
+                        {
+                            type: 'line',
+                            data: ["20", "30","45", "67", "80"],
+                            smooth: true,
+                            itemStyle: {
+									normal: {
+										color: "#fff",
+										borderColor:'rgb(96, 183, 201)',//拐点边框颜色
+                  						borderWidth:1,//拐点边框大小
+										lineStyle: {
+											color: "rgb(96, 183, 201)",
+											width: 3
+										}
+									}
+								},
+                        },
+                    ]
+                }
+            },
+            filters:{
+                
+            },
+            methods: {
+                handleSelect(){
+
+                },
+                
+            }
+        });
+    </script>
+</body>
+
+</html>
